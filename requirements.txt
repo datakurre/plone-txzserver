@@ -1,0 +1,10 @@
+Plone
+Twisted
+autobahn
+bcrypt
+h2 >= 3.0, < 4.0
+priority >= 1.1.0, < 2.0
+pyOpenSSL
+service_identity
+txZMQ
+uvloop
