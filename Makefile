@@ -3,7 +3,7 @@ SHELL := /usr/bin/env bash
 CACHIX_CACHE = datakurre
 
 PYTHON ?= python37
-PLONE ?= plone521
+PLONE ?= plone523
 
 NIX_ARGS ?= \
 	--argstr plone $(PLONE) \
