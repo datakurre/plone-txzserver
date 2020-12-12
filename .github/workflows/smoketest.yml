@@ -14,3 +14,6 @@ jobs:
       with:
         name: datakurre
     - run: nix-shell setup.nix -A shell --run "buildout"
+    - run: nix-build zconfig/instance.nix -o zope.conf
+    - run: mkdir -p var/filestorage
+    - run: nix-shell setup.nix -A shell --run "bin/plonectl instance -C zope.conf run zconfig/plonesite.py"

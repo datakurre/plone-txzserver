@@ -22,6 +22,8 @@ pkgs.stdenv.mkDerivation {
       <five:loadProducts />
       <five:loadProductsOverrides />
 
+      <include package="plonetheme.barceloneta" />
+
       <securityPolicy
           component="AccessControl.security.SecurityPolicy" />
 

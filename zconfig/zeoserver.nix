@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {}
 , generators ? import ./generators.nix {}
-, var ? "$(PLONE_VAR)"
+, var ? "$(PWD)/var"
 }:
 
 let configuration = generators.toZConfig {

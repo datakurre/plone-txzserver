@@ -1,12 +1,12 @@
 { pkgs ? import <nixpkgs> {}
 , generators ? import ./generators.nix {}
 , instancehome ? import ./instancehome.nix {}
-, var ? "$(PLONE_VAR)"
+, var ? "$(PWD)/var"
 }:
 
 let configuration = generators.toZConfig {
 
-  effective-user = "$(PLONE_EFFECTIVE_USER)";
+  effective-user = "$(USER)";
   clienthome = "${var}";
   debug-mode = false;
   default-zpublisher-encoding = "utf-8";

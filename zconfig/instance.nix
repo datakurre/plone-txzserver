@@ -6,7 +6,7 @@
 
 let configuration = generators.toZConfig {
 
-  effective-user = "$(PLONE_EFFECTIVE_USER)";
+  effective-user = "$(USER)";
   clienthome = "${var}";
   debug-mode = false;
   default-zpublisher-encoding = "utf-8";
