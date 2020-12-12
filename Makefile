@@ -6,8 +6,8 @@ PYTHON ?= python37
 PLONE ?= plone521
 
 NIX_ARGS ?= \
-	--argstr python $(PYTHON) \
-	--argstr plone $(PLONE)
+	--argstr plone $(PLONE) \
+	--argstr python $(PYTHON)
 
 .PHONY: all
 all:
@@ -21,14 +21,14 @@ nix-%:
 
 .PHONY: cachix
 cachix:
-	nix-store --query --references $$(nix-instantiate shell.nix) --references $$(nix-instantiate setup.nix -A plonePython)  | \
+	nix-store --query --references $$(nix-instantiate shell.nix $(NIX_ARGS)) --references $$(nix-instantiate setup.nix $(NIX_ARGS) -A plonePython)  | \
 	xargs nix-store --realise | xargs nix-store --query --requisites | cachix push $(CACHIX_CACHE)
 
 .PHONY: requirements
 requirements: requirements-$(PLONE)-$(PYTHON).nix
 
-requirements-$(PLONE)-$(PYTHON).nix: .cache requirements.txt requirements-$(PLONE)-$(PYTHON).txt constraints-$(PLONE).txt
-	nix-shell setup.nix $(NIX_ARGS) -A pip2nix --run "pip2nix generate -r requirements.txt -r requirements-$(PLONE)-$(PYTHON).txt --output=requirements-$(PLONE)-$(PYTHON).nix"
+requirements-$(PLONE)-$(PYTHON).nix: .cache requirements-$(PLONE)-$(PYTHON).txt
+	nix-shell setup.nix $(NIX_ARGS) -A pip2nix --run "pip2nix generate -r requirements-$(PLONE)-$(PYTHON).txt --output=requirements-$(PLONE)-$(PYTHON).nix"
 
 requirements-$(PLONE)-$(PYTHON).txt: .cache requirements.txt requirements-$(PLONE).txt constraints-$(PLONE).txt
 	nix-shell setup.nix $(NIX_ARGS) -A pip2nix --run "pip2nix generate -r requirements.txt -r requirements-$(PLONE).txt -c constraints-$(PLONE).txt --output=requirements-$(PLONE)-$(PYTHON).nix"
