@@ -1,9 +1,11 @@
 .cache
 .direnv
 .installed.cfg
+.mr.developer.cfg
 .idea/
 bin/
+develop-eggs/
+env
 parts/
 src/
 var/
-env
