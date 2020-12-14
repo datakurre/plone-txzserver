@@ -23,6 +23,8 @@ pkgs.stdenv.mkDerivation {
       <five:loadProductsOverrides />
 
       <include package="plonetheme.barceloneta" />
+      <include package="collective.taskqueue" />
+      <include package="collective.wsevents" />
 
       <securityPolicy
           component="AccessControl.security.SecurityPolicy" />

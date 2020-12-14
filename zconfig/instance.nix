@@ -6,6 +6,10 @@
 
 let configuration = generators.toZConfig {
 
+  "%import" = [
+    "collective.taskqueue"
+  ];
+
   effective-user = "$(USER)";
   clienthome = "${var}";
   debug-mode = false;
@@ -78,6 +82,8 @@ let configuration = generators.toZConfig {
       container-class = "Products.TemporaryFolder.TemporaryContainer";
     };
   };
+  taskqueue = {};
+  taskqueue-server = {};
 }; in
 
 pkgs.stdenv.mkDerivation {

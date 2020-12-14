@@ -18,7 +18,11 @@ rec {
   toZConfigComponent = type: name: attrs: indentation:
     let names = attrNames attrs; in
     if (all (value: (isAttrs value)) (attrValues attrs)) then
-      concatLists
+      if (length names) == 0 then
+        [(if (isNull name)
+           then "\n${indentation}<${type} />"
+           else "\n${indentation}<${type} ${name} />")]
+      else concatLists
         (map (key: toZConfigComponent type key (getAttr key attrs) indentation)
              (sort lessThan names))
     else [
