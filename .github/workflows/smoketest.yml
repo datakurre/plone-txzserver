@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [python37, python38]
+        python: [python37, python38, python39]
         plone: [plone523]
     steps:
     - uses: actions/checkout@v2.3.4

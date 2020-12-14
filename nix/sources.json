@@ -48,15 +48,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pip2nix": {
-        "branch": "master",
+        "branch": "nixos-20.09",
         "description": "Freeze pip-installable packages into Nix expressions",
         "homepage": "",
         "owner": "nix-community",
         "repo": "pip2nix",
-        "rev": "b32efb5268fee529210345fe777e144843ce4399",
-        "sha256": "1642y07s9303ysg29c0ypxdkd935p92rkibi8gcl9113aiwiyy0d",
+        "rev": "cc05877f1d872a20e457fbbb71212870085b1f3e",
+        "sha256": "1q43axx6qljpyzg7zjy3cknnr7v5525dd6i0a1wr7n6jjvdz4dh0",
         "type": "tarball",
-        "url": "https://github.com/nix-community/pip2nix/archive/b32efb5268fee529210345fe777e144843ce4399.tar.gz",
+        "url": "https://github.com/nix-community/pip2nix/archive/cc05877f1d872a20e457fbbb71212870085b1f3e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

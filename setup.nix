@@ -148,6 +148,9 @@ let
       "sphinx" = super."sphinx".overridePythonAttrs(old: {
         propagatedBuildInputs = old.propagatedBuildInputs ++ [ self."packaging" ];
       });
+      "pyflakes" = super."pyflakes".overridePythonAttrs(old: {
+        doCheck = false;
+      });
     };
 
 in rec {

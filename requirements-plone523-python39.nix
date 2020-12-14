@@ -98,7 +98,11 @@ self: super: {
     doCheck = false;
     buildInputs = [];
     checkInputs = [];
-    nativeBuildInputs = [];
+    nativeBuildInputs = [
+      self."setuptools"
+      self."wheel"
+      self."persistent"
+    ];
     propagatedBuildInputs = [
       self."persistent"
       self."zope.interface"
@@ -1613,17 +1617,19 @@ self: super: {
   };
   "feedparser" = super.buildPythonPackage rec {
     pname = "feedparser";
-    version = "5.2.1";
+    version = "6.0.2";
     src = fetchurl {
-      url = "https://files.pythonhosted.org/packages/91/d8/7d37fec71ff7c9dbcdd80d2b48bcdd86d6af502156fc93846fb0102cb2c4/feedparser-5.2.1.tar.bz2";
-      sha256 = "00hb4qg2am06g81mygfi1jsbx8830024jm45g6qp9g8fr6am91yf";
+      url = "https://files.pythonhosted.org/packages/1c/21/faf1bac028662cc8adb2b5ef7a6f3999a765baa2835331df365289b0ca56/feedparser-6.0.2-py3-none-any.whl";
+      sha256 = "1p9d8lvqf8ylji70c43j4rfqs7l40cb1ka63d9zdrqmk9yrw95pm";
     };
-    format = "setuptools";
+    format = "wheel";
     doCheck = false;
     buildInputs = [];
     checkInputs = [];
     nativeBuildInputs = [];
-    propagatedBuildInputs = [];
+    propagatedBuildInputs = [
+      self."sgmllib3k"
+    ];
   };
   "five.customerize" = super.buildPythonPackage rec {
     pname = "five.customerize";
@@ -4296,6 +4302,20 @@ self: super: {
       self."pyasn1-modules"
     ];
   };
+  "sgmllib3k" = super.buildPythonPackage rec {
+    pname = "sgmllib3k";
+    version = "1.0.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/9e/bd/3704a8c3e0942d711c1299ebf7b9091930adae6675d7c8f476a7ce48653c/sgmllib3k-1.0.0.tar.gz";
+      sha256 = "1s8jm3dgqabgf8x96931scji679qkhvczlv3qld4qxpsicfgns3q";
+    };
+    format = "setuptools";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [];
+  };
   "simplejson" = super.buildPythonPackage rec {
     pname = "simplejson";
     version = "3.17.0";
@@ -4962,7 +4982,13 @@ self: super: {
     doCheck = false;
     buildInputs = [];
     checkInputs = [];
-    nativeBuildInputs = [];
+    nativeBuildInputs = [
+      self."pycparser"
+      self."cffi"
+      self."zope.interface"
+      self."persistent"
+      self."zope.proxy"
+    ];
     propagatedBuildInputs = [
       self."BTrees"
       self."persistent"
@@ -5469,7 +5495,10 @@ self: super: {
     doCheck = false;
     buildInputs = [];
     checkInputs = [];
-    nativeBuildInputs = [];
+    nativeBuildInputs = [
+      self."zope.interface"
+      self."zope.proxy"
+    ];
     propagatedBuildInputs = [
       self."setuptools"
       self."zope.component"
